@@ -6,7 +6,7 @@ on:
         type: choice
         description: "配置文件"
         required: true
-        default: oneplus_ace2_pro_b
+        default: oneplus_ace_pro_v
         options:
           - oneplus_nord_n30_se_5g_v
           - oneplus_10r_v
@@ -82,7 +82,7 @@ on:
         type: choice
         description: "内核模块实现方式"
         required: true
-        default: KPM
+        default: N/A
         options:
           - KPM
           - KPN
@@ -101,12 +101,12 @@ on:
         type: string
         description: "自定义构建时间(输入F使用UTCT或-1关闭)"
         required: false
-        default: "Fri Dec 12 11:37:03 UTC 2025"
+        default: "Sat Aug 16 07:34:19 UTC 2025"
       KSU_META:
         type: string
         description: "分支名(必填)/自定义版本标识(留空不修改)/回退分支提交哈希版本(留空不修改)"
         required: false
-        default: "main/Numbersf/"
+        default: "dev//"
       LZ4_UPDATE:
         type: boolean
         description: "(危险)是否升级LZ4到上游最新？"
@@ -121,16 +121,16 @@ on:
         type: string
         description: "自定义内核后缀(不输入使用RAND_STR或-1关闭)"
         required: false
-        default: ""
+        default: "9-o-gbf90590695a1"
       SUBLEVEL:
         description: "自定义内核等级欺骗(SUBLEVEL)"
         required: false
-        default: ""
+        default: "236"
       FAST_BUILD:
         type: boolean
         description: "是否启用极速构建？"
         required: true
-        default: true
+        default: false
       LSM_BBG:
         type: boolean
         description: "是否启用关键分区写入保护模块(BBG)？"
@@ -150,7 +150,7 @@ on:
         type: boolean
         description: "是否添加Unicode不可见字码点绕过读取漏洞修复？"
         required: true
-        default: false
+        default: true
       SCHED_HMBIRD:
         type: boolean
         description: "是否添加风驰驱动1.0？"
@@ -713,7 +713,7 @@ jobs:
               ARTIFACT="Spoofed-Manager-release"
               ;;
             MD3|*)
-              BRANCH="main"
+              BRANCH="dev"
               ARTIFACT="Manager-release"
               ;;
           esac
